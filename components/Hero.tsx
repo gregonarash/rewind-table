@@ -39,7 +39,23 @@ const Hero = (props: Props) => {
                 Create programmatic videos at scale
               </h1>
               <p className="mt-4 text-3xl text-slate-600">
-                Without coding using nothing but Airtable and Remotion.
+                Without coding using nothing but{" "}
+                <a
+                  href="https://airtable.com"
+                  rel="noopener"
+                  className="underline decoration-blue-600 hover:decoration-blue-500 "
+                >
+                  Airtable
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://remotion.dev"
+                  rel="noopener"
+                  className="underline decoration-blue-600 hover:decoration-blue-500"
+                >
+                  Remotion
+                </a>
+                .
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4 lg:justify-start">
                 <Button href="#makeVideo" color="blue">

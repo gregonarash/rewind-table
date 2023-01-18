@@ -43,7 +43,6 @@ export const RemotionRoot: React.FC = () => {
     const [data, duration] = await fetchScenes(sceneRequest);
     setData(data);
     setDuration(duration);
-    console.log(data);
     continueRender(handle);
   }, [handle]);
 

@@ -65,7 +65,7 @@ const PlayerSection = ({
         method: "blob-url",
       });
 
-      //TODO fix this
+      //TODO Properly resolve promises and show loading state
       waitUntilDone();
     }
   });
@@ -126,6 +126,10 @@ const PlayerSection = ({
     }
   }
 
+  function openFeedbackForm() {
+    window.open("https://airtable.com/shr274wwSarVLnBRM", "feedback");
+  }
+
   return (
     <section
       id="videoExportArea"
@@ -133,7 +137,7 @@ const PlayerSection = ({
     >
       <div className="relative mx-auto flex max-w-6xl flex-col gap-3 md:flex-row-reverse">
         <div className="rounded-md bg-slate-100 p-3 md:w-1/3">
-          <h3 className="self-center text-sm font-medium text-gray-700">
+          <h3 className="self-center font-medium text-gray-900">
             Aspect Ratio
           </h3>
           <Select
@@ -162,15 +166,61 @@ const PlayerSection = ({
               }),
             }}
           />
-          <Button
-            className=" mt-5 "
-            variant="outline"
-            color="red"
-            onClick={openPreview}
-          >
-            Open preview on localhost:3001
-          </Button>
+          <p className="mt-3 text-sm font-medium text-gray-700">
+            Dimensions in pixels: {width}x{height}
+          </p>
+          <div>
+            <p className="mt-3 font-medium  text-gray-900">
+              Preview in Remotion Preview
+            </p>
+            <p className="mt-1 text-sm text-gray-700">
+              Start Remotion Preview locally with command{" "}
+              <code className="rounded-sm bg-slate-200 p-1 text-gray-900">
+                yarn&nbsp;video
+              </code>{" "}
+              and click button below.
+            </p>
+            <Button
+              className=" mt-5 "
+              variant="outline"
+              color="red"
+              onClick={openPreview}
+            >
+              Open preview on localhost:3001
+            </Button>
+          </div>
+          <div className="mt-4">
+            <p className="mt-3 font-medium  text-gray-900">Render video</p>
+            <p className="mt-1 text-sm text-gray-700">
+              If you would be interested to use this project to render videos
+              online, without having to install anything, please let me know.
+            </p>
+            <Button
+              className=" mt-5 "
+              variant="solid"
+              color="blue"
+              onClick={openFeedbackForm}
+            >
+              Ask about video rendering
+            </Button>
+          </div>
+          <div className="mt-4">
+            <p className="mt-3 font-medium  text-gray-900">Embed Player</p>
+            <p className="mt-1 text-sm text-gray-700">
+              If you would be interested to embed this player on your website,
+              please reach out to me below.
+            </p>
+            <Button
+              className=" mt-5 "
+              variant="solid"
+              color="blue"
+              onClick={openFeedbackForm}
+            >
+              Ask about embedding player
+            </Button>
+          </div>
         </div>
+
         <div className="md:flex md:w-2/3 md:justify-center">
           <div
             className={cn(
