@@ -33,39 +33,48 @@ export const defaultFields = {
   name: {
     defaultName: "Name",
     type: ["singleLineText", "formula"],
+    mandatory: false,
   },
   startFrom: { defaultName: "Start", type: ["duration"], mandatory: true },
   durationInSeconds: {
     defaultName: "Duration",
     type: ["duration"],
+    mandatory: true,
   },
   media: {
     defaultName: "Media",
     type: ["multipleAttachments"],
+    mandatory: true,
   },
   text: {
     defaultName: "Text",
     type: ["singleLineText", "multilineText", "formula"],
+    mandatory: true,
   },
   textStyle: {
     defaultName: "Text style",
     type: ["singleLineText", "multilineText", "formula"],
+    mandatory: false,
   },
   mediaStyle: {
     defaultName: "Media style",
     type: ["singleLineText", "multilineText", "formula"],
+    mandatory: false,
   },
   bgStyle: {
     defaultName: "Background style",
     type: ["singleLineText", "multilineText", "formula"],
+    mandatory: false,
   },
   animation: {
     defaultName: "Animation code (from Animation)",
     type: ["multipleLookupValues"],
+    mandatory: false,
   },
   volume: {
     defaultName: "Volume",
     type: ["number"],
+    mandatory: false,
   },
 };
 

@@ -29,8 +29,6 @@ const Hero = (props: Props) => {
                 src={"/teaser.mp4"}
                 className="aspect-[9/16] w-96 rounded-xl"
               />
-
-              {/* <div className="aspect-[9/16] w-96 bg-gray-500"></div> */}
             </div>
           </div>
         </div>
@@ -47,7 +45,11 @@ const Hero = (props: Props) => {
                 <Button href="#makeVideo" color="blue">
                   Start making video now
                 </Button>
-                <Button href="#pricing" variant="outline" color="blue">
+                <Button
+                  href="https://github.com/gregonarash/rewind-table"
+                  variant="outline"
+                  color="blue"
+                >
                   Visit Github
                 </Button>
               </div>

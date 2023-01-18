@@ -27,8 +27,6 @@ const InputForm: React.FC<Props> = (props) => {
     refetchOnWindowFocus: false,
   });
 
-  console.log(metadata);
-
   const {
     register,
     handleSubmit,
@@ -47,14 +45,11 @@ const InputForm: React.FC<Props> = (props) => {
   }, []);
 
   const onSubmit: SubmitHandler<Credentials> = async (credentials) => {
-    console.log("on submit?");
-    console.log(credentials);
     localStorage.setItem("credentials", JSON.stringify(credentials));
     setCredentials(credentials);
   };
 
   const clearCredentials = () => {
-    console.log("clear");
     setCredentials(null);
     reset();
     localStorage.removeItem("credentials");
@@ -71,19 +66,41 @@ const InputForm: React.FC<Props> = (props) => {
             <div className="md:col-span-1">
               <div className="px-4 sm:px-0">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Airtable Access
+                  Connecting to Airtable
                 </h3>
-                <p className="mt-1 text-sm text-gray-600">
-                  Insert link to Table you want to use and your API key
-                  <br />
-                  <br /> <strong className="font-extrabold">*</strong> if you
-                  are using Beta Web API Personal Access token include following
-                  scopes:
+                <p className="mt-1">
+                  Copy{" "}
+                  <a
+                    href="https://airtable.com/shryu85CEPUD2IHX4"
+                    className="font-semibold underline decoration-blue-500 decoration-2 hover:text-blue-600"
+                    target={"_blank"}
+                    rel="noreferrer noopener"
+                  >
+                    this Airtable base
+                  </a>{" "}
+                  to start from our template or use your base and map the
+                  required fields.
                 </p>
-                <ul className="mt-1 list-inside list-disc pl-2 text-xs text-gray-600 ">
+                <p className="mt-3 text-base">
+                  <strong className="font-extrabold">*</strong> Go to Airtable
+                  Web API and{" "}
+                  <a
+                    href=" https://airtable.com/create/tokens"
+                    className="font-semibold underline decoration-blue-500 decoration-2 hover:text-blue-600"
+                    target={"_blank"}
+                    rel="noreferrer noopener"
+                  >
+                    create a Personal Access Token.
+                  </a>
+                  <br />
+                  The token must include following scopes:
+                </p>
+                <ul className="mt-1 list-inside list-disc pl-2 text-sm text-gray-600 ">
                   <li>schema.bases:read </li>
                   <li>data.records:read</li>
                 </ul>
+                You need to also grant authorization for the token to access the
+                base you are using.
               </div>
             </div>
             <div
@@ -127,7 +144,7 @@ const InputForm: React.FC<Props> = (props) => {
                           htmlFor="apiKey"
                           className="block text-sm font-medium text-gray-700"
                         >
-                          API Key - User API key or Personal access token*
+                          API Key - use Personal Access Token*
                         </label>
                         <input
                           type="password"

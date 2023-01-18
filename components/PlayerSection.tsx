@@ -64,9 +64,9 @@ const PlayerSection = ({
       const { free, waitUntilDone } = prefetch(media?.[0].url, {
         method: "blob-url",
       });
-      waitUntilDone().then(() => {
-        console.log(`Video from ${scene.name} finished loading"`);
-      });
+
+      //TODO fix this
+      waitUntilDone();
     }
   });
 

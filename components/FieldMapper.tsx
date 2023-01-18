@@ -100,13 +100,8 @@ const FieldMapper: React.FC<Props> = ({
 
   //if fields change because changing tables - the selected fields should be reset
   useEffect(() => {
-    console.log("fields changed");
     setSelectedFields(calculateDefaultFields(defaultFields, fields));
   }, [fields]);
-
-  useEffect(() => {
-    console.log("selectedFields changed", selectedFields);
-  }, [selectedFields]);
 
   const selectedFieldsLabels = (
     Object.keys(selectedFields) as (keyof FieldsMapping)[]
@@ -242,11 +237,52 @@ const FieldMapper: React.FC<Props> = ({
         <div className="z-40 mt-5 md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Select fields
+              Map data fields
             </h3>
-            <p className="mt-1 text-sm text-gray-600">
+            <p className="mt-1 text-gray-900">
               Insert link to Table you want to use and your API key{" "}
             </p>
+            <p className="mt-1"> Mandatory:</p>
+            <ul className="mt-1 list-inside list-disc pl-2 text-sm text-gray-600 ">
+              {(Object.keys(defaultFields) as (keyof FieldsMapping)[])
+                .filter(
+                  (defaultFieldName) =>
+                    defaultFields[defaultFieldName].mandatory
+                )
+                .map((defaultFieldName) => {
+                  return (
+                    <li key={defaultFieldName}>
+                      {defaultFields[defaultFieldName].defaultName}{" "}
+                      {/* <span className="text-xs text-slate-500">
+                        {defaultFields[
+                          defaultFieldName as keyof FieldsMapping
+                        ].type.join(", ")}
+                      </span> */}
+                    </li>
+                  );
+                })}
+            </ul>
+
+            <p className="mt-1">Optional:</p>
+            <ul className="mt-1 list-inside list-disc pl-2 text-sm text-gray-600 ">
+              {(Object.keys(defaultFields) as (keyof FieldsMapping)[])
+                .filter(
+                  (defaultFieldName) =>
+                    !defaultFields[defaultFieldName].mandatory
+                )
+                .map((defaultFieldName) => {
+                  return (
+                    <li key={defaultFieldName}>
+                      {defaultFields[defaultFieldName].defaultName}{" "}
+                      {/* <span className="text-xs text-slate-500">
+                        {defaultFields[
+                          defaultFieldName as keyof FieldsMapping
+                        ].type.join(", ")}
+                      </span> */}
+                    </li>
+                  );
+                })}
+            </ul>
           </div>
           <div className="mt-5 flex flex-col md:col-span-2 md:mt-0">
             <div className="bg-white px-4 py-5 shadow @container sm:rounded-md sm:p-6 ">
@@ -255,7 +291,7 @@ const FieldMapper: React.FC<Props> = ({
                   return (
                     <div key={defaultField} className="mb-5 @xl:flex">
                       <div className="block self-center text-sm font-medium text-gray-700 @xl:mr-3 @xl:grow-0 @xl:basis-32">
-                        {defaultField}
+                        {defaultFields[defaultField].defaultName}
                       </div>
                       <SelectWithLabel
                         options={fields.map((field) => ({
