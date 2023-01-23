@@ -193,7 +193,13 @@ const PlayerSection = ({
             <p className="mt-3 font-medium  text-gray-900">Render video</p>
             <p className="mt-1 text-sm text-gray-700">
               If you would be interested to use this project to render videos
-              online, without having to install anything, please let me know.
+              online, without having to install anything, please let me know.{" "}
+              <br />
+              If you would like to get the rendered video as a file, you can
+              send me the link, that opens from the button above ☝. I try to do
+              my best to render it and send the file back to you. Remember the
+              hash in URL contains your token, so make sure you are using token
+              with access to single base.
             </p>
             <Button
               className=" mt-5 "
