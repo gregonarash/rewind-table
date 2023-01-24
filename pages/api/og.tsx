@@ -22,7 +22,7 @@ export default async function handler(req: NextRequest) {
           alignItems: "center",
           justifyContent: "center",
           backgroundImage:
-            "linear-gradient(to left, rgb(219, 234, 254), rgb(147, 197, 253), rgb(59, 130, 246))",
+            "linear-gradient(to left, rgb(219, 234, 254), rgb(147, 197, 253))",
         }}
       >
         <div
@@ -32,7 +32,7 @@ export default async function handler(req: NextRequest) {
         >
           Rewind Table
         </div>
-        {!!ip && <div>{ip}</div>}
+
         <svg
           width="235"
           height="235"
