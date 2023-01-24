@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -7,7 +9,15 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: [
+          '"Noto Sans"',
+          '"Noto Color Emoji"',
+          ...defaultTheme.fontFamily.sans,
+        ],
+      },
+    },
   },
   plugins: [
     require("@tailwindcss/forms"),
