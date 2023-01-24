@@ -9,6 +9,7 @@ export default function Document() {
           content="Create programmatic videos at scale using Airtable"
         />
         <meta name="theme-color" content="rgba(59,130,246,.5)" />
+        <meta property="og:image" content="https://rewindtable.com/api/og" />
         {/* Analytics */}
         {process.env.NEXT_PUBLIC_UMAMI_ANALYTICS_ID && (
           <script
